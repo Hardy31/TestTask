@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name="email", schema = "public")
+@Table(name="emails", schema = "public")
 public class Email {
 
     @Id

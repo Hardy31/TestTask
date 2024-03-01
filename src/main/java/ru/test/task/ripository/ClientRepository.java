@@ -11,4 +11,7 @@ import java.util.Optional;
 public interface ClientRepository extends JpaRepository<Client, Long> {
 //    @Query("SELECT * FROM client c LEFT JOIN phone p on c.id=p.client_id")
 //    Optional<Client> findClientFullById ();
+
+    @Override
+    Optional<Client> findById(Long aLong);
 }

@@ -4,11 +4,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.test.task.dto.ClientDto;
 import ru.test.task.dto.ClientDtoCreate;
 import ru.test.task.entity.Client;
+import ru.test.task.mapper.ClientMapper;
 import ru.test.task.ripository.ClientRepository;
 import ru.test.task.ripository.EmailRepository;
 import ru.test.task.ripository.PhonePepository;
@@ -18,13 +20,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Transactional
+//@Transactional
 @RequiredArgsConstructor
 @Slf4j
 public class ClientServiceImp implements ClientService {
-    private ClientRepository clientRepository;
-    private PhonePepository phonePepository;
-    private EmailRepository emailRepository;
+//    @Autowired
+    private final ClientRepository clientRepository;
+    private  final  ClientMapper clientMapper;
+    private final PhonePepository phonePepository;
+    private final EmailRepository emailRepository;
 
 
     @Override
@@ -38,15 +42,12 @@ public class ClientServiceImp implements ClientService {
 
     @Override
     public ClientDto getById(Long id) {
-
-        Client clien = clientRepository.findById(id).orElseThrow(
+        Client client = clientRepository.findById(id).orElseThrow(
                 ()-> new RuntimeException("ClientServiceImp Клиент не найден Id")
         );
-
-
-        log.info("ClientServiceImp getById(Long id) {}", clien);
-
-        return null;
+        log.info("ClientServiceImp getById(Long id) {}", client);
+        ClientDto clientDto = clientMapper.convertToDto(client);
+        return clientDto;
     }
 
     @Override

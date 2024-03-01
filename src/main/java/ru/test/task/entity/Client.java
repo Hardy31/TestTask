@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Data
@@ -17,7 +18,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name="client", schema = "public")
+@Table(name="clients", schema = "public")
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +35,7 @@ public class Client {
     private String fatherName;
 
     @Column(name="birthday")
-    private LocalDateTime birthday;
+    private Timestamp birthday;
 
 //    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 //    @JoinColumn(name = "phone_id", referencedColumnName = "id", nullable=false )
