@@ -15,11 +15,11 @@ import jakarta.persistence.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name="accounts", schema = "public")
+@Table(name = "accounts", schema = "public")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "name")
@@ -27,7 +27,8 @@ public class Account {
 
     @Column(name = "balance")
     private double balance;
-@OneToOne
-   @JoinColumn(name = "client_id", referencedColumnName = "id")
+
+    @OneToOne
+    @JoinColumn(name = "client_id", referencedColumnName = "id")
     private Client client;
 }

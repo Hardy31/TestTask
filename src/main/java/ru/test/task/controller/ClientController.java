@@ -12,8 +12,10 @@ import java.util.List;
 
 @Slf4j
 @RestController
+//@Api (discription = "Пример работы Swager")
 @RequiredArgsConstructor
 @RequestMapping("/rest/clients")
+
 public class ClientController {
     private final ClientService clientService;
 
@@ -34,7 +36,7 @@ public class ClientController {
         return clientDto;
     }
 
-    @GetMapping("/phone/{pnone}")
+    @GetMapping("/phone/{phone}")
     public ClientDto getByPhone(@PathVariable String phone){
         log.info("ClientController getByPhone( String phone) - {}", phone);
         ClientDto clientDto = clientService.getByPhone(phone);
@@ -57,7 +59,7 @@ public class ClientController {
     @PutMapping("")
     public ClientDto editClient(@RequestBody ClientDto clientDto) {
         log.info("ClientController editClient  = {}", clientDto);
-        return clientService.editClieny(clientDto);
+        return clientService.editClient(clientDto);
     }
 
     @DeleteMapping("/{id}")

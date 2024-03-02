@@ -15,12 +15,12 @@ import java.util.List;
 public interface ClientMapper {
 
 
-    @Mapping(source = "client.phone", target = "phone")
-    @Mapping(source = "client.email", target = "email")
+//    @Mapping(source = "client.phone", target = "phone")
+//    @Mapping(source = "client.email", target = "email")
     ClientDto convertToDto (Client client);
     Client convertToEntity (ClientDto clientDto);
 
-    List<ClientDto> convertClientListToClientDtoList (List<ClientDto> clientDtoList);
+    List<ClientDto> convertClientListToClientDtoList (List<Client> clientList);
 
     Client createToEntity(ClientDtoCreate clientDtoCreate);
 

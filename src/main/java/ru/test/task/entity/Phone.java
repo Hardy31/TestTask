@@ -22,7 +22,7 @@ public class Phone {
     @Column(name="phone", unique=true)
     private String phone;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @ManyToOne( optional = false)
     @JoinColumn(name = "client_id", referencedColumnName = "id", nullable=false )
     private Client client;
 

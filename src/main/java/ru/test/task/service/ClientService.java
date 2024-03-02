@@ -15,7 +15,7 @@ public interface ClientService  {
 
     ClientDto create(ClientDtoCreate clientDtoCreate);
 
-    ClientDto editClieny(ClientDto clientDto);
+    ClientDto editClient(ClientDto clientDto);
 
     void delite(@PathVariable long id);
 

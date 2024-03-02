@@ -23,7 +23,7 @@ public class Email {
     @Column(name="email", unique=true )
     private String email;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @ManyToOne( optional = false)
     @JoinColumn(name = "client_id", referencedColumnName = "id", nullable=false )
     private Client client;
 
