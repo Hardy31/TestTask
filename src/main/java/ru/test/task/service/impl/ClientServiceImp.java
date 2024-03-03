@@ -60,6 +60,7 @@ public class ClientServiceImp implements ClientService {
         ClientDto clientDto = clientMapper.convertToDto(client);
         long clientId = client.getId();
 
+//        List<Email> emailList = emailRepository.findAllByCli
         List<Email> emailList = emailRepository.findAllByClient(client);
         List<EmailDto> emailDtoList = emailMapper.convertEmailListToEmailDtoList(emailList);
         clientDto.setEmailDtoList(emailDtoList);

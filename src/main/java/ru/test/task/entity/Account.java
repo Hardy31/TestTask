@@ -16,6 +16,7 @@ import jakarta.persistence.*;
 @Builder
 @Entity
 @Table(name = "accounts", schema = "public")
+
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

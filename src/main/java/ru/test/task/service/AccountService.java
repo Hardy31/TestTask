@@ -9,13 +9,13 @@ import ru.test.task.dto.ClientDtoCreate;
 import java.util.List;
 
 public interface AccountService {
-    List<ClientDto> getAllAccounts();
+    List<AccountDto> getAll();
 
-    ClientDto getById(Long id);
+    AccountDto getById(Long id);
 
-    ClientDto create(AccountDtoCreate accountDtoCreate);
+    AccountDto create(AccountDtoCreate accountDtoCreate);
 
-    ClientDto editAccount(AccountDto accountDto);
+    AccountDto editAccount(AccountDto accountDto);
 
     void delite(@PathVariable long id);
 }

@@ -11,9 +11,7 @@ import java.util.List;
 @Repository
 
 public interface EmailRepository extends CrudRepository<Email, Long>,JpaRepository<Email,Long> {
-
-
-
+//
     List<Email> findAllByClient(Client client);
     Email findByEmail(String name);
 }

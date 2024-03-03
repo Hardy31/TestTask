@@ -21,7 +21,7 @@ public class ClientController {
 
 //    curl -X GET http://localhosy/rest/clients
     @GetMapping("")
-    public List<ClientDto> getAllClients(){
+    public List<ClientDto> getAll(){
         log.info("ClientController geAllClients()");
         List<ClientDto> allClients = clientService.getAllClients();
         return allClients;
@@ -57,13 +57,13 @@ public class ClientController {
     }
 
     @PutMapping("")
-    public ClientDto editClient(@RequestBody ClientDto clientDto) {
+    public ClientDto edit(@RequestBody ClientDto clientDto) {
         log.info("ClientController editClient  = {}", clientDto);
         return clientService.editClient(clientDto);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteClientById(@PathVariable Long id) {
+    public void delete(@PathVariable Long id) {
         log.info("ClientController deleteClientById = {}", id);
         clientService.delite(id);
     }
