@@ -2,30 +2,32 @@ package ru.test.task.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import ru.test.task.entity.Account;
 import ru.test.task.entity.enums.TransactionType;
 
 import java.sql.Timestamp;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
+
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@JsonFormat(with = JsonFormat.Feature.ACCEPT_CASE_INSENSITIVE_PROPERTIES)
+//@ToString
+//@Getter
+@Value
 public class TransactionDto {
 
-    private Long id;
+     Long id;
 
-    private String type;
+     String type;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
-    private Timestamp createdAt;
+     Timestamp createdAt;
 
-    private double transferAmount;
+     double transferAmount;
 
-    private Account debitAccount;
+     Account debitAccount;
 
-    private Account creditAccount;
+     Account creditAccount;
 
 }

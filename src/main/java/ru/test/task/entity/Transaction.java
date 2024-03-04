@@ -1,19 +1,18 @@
 package ru.test.task.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import ru.test.task.entity.enums.TransactionType;
 
 import java.sql.Timestamp;
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Builder
 @Entity
+@Getter
 @Table(name="transactions", schema = "public")
 public class Transaction {
     @Id
@@ -31,11 +30,11 @@ public class Transaction {
     @Column(name = "transfer_amount")
     private double transferAmount;
 
-    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY )
+    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER )
     @JoinColumn(name = "debit_account_id", referencedColumnName = "id")
     private Account debitAccount;
 
-    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @JoinColumn(name = "credit_account_id", referencedColumnName = "id")
     private Account creditAccount;
 }
